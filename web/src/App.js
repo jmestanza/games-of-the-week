@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from "react";
 
 function App() {
+  const url = 'http://localhost:8080/api/games'
+
+  const [games, setGames] = useState([]);
+  useEffect(() => {
+    fetch(url).then(res=> res.json()).then(res => setGames(res));
+  }, []);
+  console.log('games:', games);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          here are the games:
+        {games.map(game => <div key={game.name}>{game.name}</div>)}
       </header>
     </div>
   );
