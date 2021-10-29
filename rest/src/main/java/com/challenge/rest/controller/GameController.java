@@ -1,9 +1,8 @@
 package com.challenge.rest.controller;
 
-import com.challenge.rest.model.Game;
+import com.challenge.rest.entity.Game;
+import com.challenge.rest.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +16,10 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private GameService gameService;
 
     @GetMapping("/games")
     public List<Game> getGames(){
-        String sql = "SELECT * FROM GAMES";
-        List<Game> games = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Game.class));
-        return games;
+        return gameService.readGames();
     }
 }
