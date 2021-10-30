@@ -29,6 +29,7 @@ public class GameService {
         }
     }
 
+    @Transactional
     public List<Game> readGames(){
         return gameRepository.findAll();
     }
