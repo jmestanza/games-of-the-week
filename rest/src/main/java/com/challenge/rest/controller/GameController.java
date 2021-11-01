@@ -24,4 +24,14 @@ public class GameController {
     public String addGame(@RequestBody Game game){
         return gameService.createGame(game);
     }
+
+    @PostMapping("/games/delete")
+    public String deleteGame(@RequestBody String gameName){
+        return gameService.deleteGame(gameName);
+    }
+
+    @PostMapping("/games/update")
+    public String updateGame(@RequestBody Game game){
+        return gameService.updateGame(game);
+    }
 }

@@ -40,9 +40,13 @@ public class GameService {
             try {
                 List<Game> games = gameRepository.findByName(game.getName());
                 games.forEach(g -> {
-                    Game gameToBeUpdated = gameRepository.findById(game.getId()).get();
+                    Game gameToBeUpdated = gameRepository.findById(g.getId()).get();
                     gameToBeUpdated.setName(game.getName());
-//                    gameToBeUpdated.set todo: FILL THIS WITH REMAINING FIELDS
+                    gameToBeUpdated.setAgeMin(game.getAgeMin());
+                    gameToBeUpdated.setAgeMax(game.getAgeMax());
+                    gameToBeUpdated.setPlayersMin(game.getPlayersMin());
+                    gameToBeUpdated.setPlayersMax(game.getPlayersMax());
+                    gameToBeUpdated.setDuration(game.getDuration());
                     gameRepository.save(gameToBeUpdated);
                 });
                 return "Game record updated";
@@ -55,10 +59,10 @@ public class GameService {
     }
 
     @Transactional
-    public String deleteGame(Game game){
-        if(gameRepository.existsByName(game.getName())){
+    public String deleteGame(String gameName){
+        if(gameRepository.existsByName(gameName)){
             try {
-                List<Game> games = gameRepository.findByName(game.getName());
+                List<Game> games = gameRepository.findByName(gameName);
                 games.forEach(g -> {
                     gameRepository.delete(g);
                 });
