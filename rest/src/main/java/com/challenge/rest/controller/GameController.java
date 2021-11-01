@@ -3,10 +3,7 @@ package com.challenge.rest.controller;
 import com.challenge.rest.entity.Game;
 import com.challenge.rest.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +18,10 @@ public class GameController {
     @GetMapping("/games")
     public List<Game> getGames(){
         return gameService.readGames();
+    }
+
+    @PostMapping("/games/add")
+    public String addGame(@RequestBody Game game){
+        return gameService.createGame(game);
     }
 }

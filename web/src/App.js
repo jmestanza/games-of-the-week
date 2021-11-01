@@ -1,14 +1,17 @@
 import './App.css';
 import {useEffect, useState} from "react";
+import gameServices from "./services/gameServices";
+import Game from "./model/Game";
 
 function App() {
-  const url = 'http://localhost:8080/api/games'
-
   const [games, setGames] = useState([]);
+
+
   useEffect(() => {
-    fetch(url).then(res=> res.json()).then(res => setGames(res));
+    gameServices.getAll(setGames);
+    const Pirates = new Game('Pirates3', 1,2,3,4,5);
+    gameServices.add(Pirates);
   }, []);
-  console.log('games:', games);
   return (
     <div className="App">
       <header className="App-header">
