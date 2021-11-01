@@ -17,11 +17,16 @@ const gameService = {
             .then(res => console.log(res));
     },
     getAll: (setGames) => {
-        fetch(getGamesUrl).then(res=> res.json()).then(res => setGames(res));
+        fetch(getGamesUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(res=> res.json()).then(res => setGames(res));
     },
     delete: (gameName) => {
         fetch(deleteGameUrl, {
-            method: 'POST',
+            method: 'DELETE',
             body: gameName,
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +37,7 @@ const gameService = {
     },
     update: (game) => {
         fetch(updateGameUrl, {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify(game),
             headers: {
                 'Content-Type': 'application/json'

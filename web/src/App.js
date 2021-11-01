@@ -9,10 +9,10 @@ function App() {
 
   useEffect(() => {
     gameServices.getAll(setGames);
-    const Pirates = new Game('Pirates2', 1,2,3,4,100);
+    const Pirates = new Game('Pirates2', 1,2,3,4,50);
     // gameServices.add(Pirates);
-    // gameServices.delete('Pirates3');
-    // gameServices.update(Pirates);
+    // gameServices.delete('Pirates2');
+    gameServices.update(Pirates);
   }, []);
   return (
     <div className="App">
