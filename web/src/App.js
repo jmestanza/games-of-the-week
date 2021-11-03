@@ -41,7 +41,7 @@ function App() {
   return (
     <div style={AppStyle}>
       <div style={titleStyle}>
-        <h1>Games of the Week</h1>
+        <h2>Games of the Week</h2>
       </div>
 
       <div className={'container'}>
