@@ -1,9 +1,14 @@
-function Game(name, ageMin, ageMax, playersMin, playersMax, duration) {
-    this.name = name;
-    this.ageMin = ageMin;
-    this.ageMax = ageMax;
-    this.playersMin = playersMin;
-    this.playersMax = playersMax;
-    this.duration = duration;
-}
+const Game = (name, ageMin, ageMax, playersMin, playersMax, duration) => {
+  const initValue = "";
+  const setInitValue = (value) => (value === undefined ? "" : value);
+  return {
+    name: setInitValue(name),
+    ageMin: setInitValue(ageMin),
+    ageMax: setInitValue(ageMax),
+    playersMin: setInitValue(playersMin),
+    playersMax: setInitValue(playersMax),
+    duration: setInitValue(duration),
+  };
+};
+
 export default Game;

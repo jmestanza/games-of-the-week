@@ -25,18 +25,18 @@ function App() {
 
   useEffect(() => {
     gameServices.getAll(setGames);
-    const Pirates = new Game("Pirates2", 1, 2, 3, 4, 50);
+    const Pirates = Game("Pirates2", 1, 2, 3, 4, 50);
     // gameServices.add(Pirates);
     // gameServices.delete('Pirates2');
     // gameServices.update(Pirates);
   }, []);
 
   const titleStyle = {
-    display: 'flex',
-    "align-items": 'center',
-    "justify-content": 'center',
-    color: 'white'
-  }
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "white",
+  };
 
   return (
     <div style={AppStyle}>
@@ -44,19 +44,16 @@ function App() {
         <h2>Games of the Week</h2>
       </div>
 
-      <div className={'container'}>
+      <div className={"container"}>
         <GameCarousel />
       </div>
 
-
-
-      <div className={'container'}>
+      <div className={"container"}>
         <div style={titleStyle}>
           <h2>Want to Add a Game?</h2>
         </div>
-        <GameForm/>
+        <GameForm />
       </div>
-
     </div>
   );
 }
