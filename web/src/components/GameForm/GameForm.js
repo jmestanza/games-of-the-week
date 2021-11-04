@@ -1,6 +1,4 @@
-import Game from "../../model/Game";
-import { useState } from "react";
-import gameServices from "../../services/gameServices";
+import useForm from "./useForm";
 
 const GameForm = () => {
   const titleStyle = {
@@ -10,50 +8,10 @@ const GameForm = () => {
     color: "white",
   };
 
-  const [gameToSubmit, setGameToSubmit] = useState(Game());
-
-  const checkFormValue = (formValue) => {
-    return formValue === null || formValue === "";
-  };
-
-  const validateGame = (game) => {
-    console.log("game to validate: ", game);
-    if (Object.values(game).some(checkFormValue)) {
-      const idx = Object.values(game).findIndex((v) => checkFormValue(v));
-      console.log("failing on:", idx);
-      console.log("failed on first val");
-      console.log(Object.values(game));
-      return false;
-    }
-
-    const numbersToCheck = [
-      "ageMin",
-      "ageMax",
-      "playersMin",
-      "playersMax",
-      "duration",
-    ];
-    const isNumeric = (num) => !isNaN(num);
-    if (numbersToCheck.some((field) => !isNumeric(game[field]))) return false;
-    try {
-      numbersToCheck.forEach((field) => {
-        game[field] = parseInt(game[field]);
-      });
-      setGameToSubmit(game);
-      return true;
-    } catch (error) {
-      console.log("couldnt parse numbers in game");
-      console.log("error");
-      return false;
-    }
-  };
+  const [submitGame, onChangeHandler] = useForm();
 
   const onFormSubmit = () => {
-    if (validateGame(gameToSubmit)) {
-      gameServices.add(gameToSubmit);
-    } else {
-      console.warn("nto valid game to add");
-    }
+    submitGame();
   };
   return (
     <>
@@ -67,9 +25,7 @@ const GameForm = () => {
             className="form-control"
             id="Game Name"
             placeholder="Jumanji"
-            onChange={(event) =>
-              setGameToSubmit({ ...gameToSubmit, name: event.target.value })
-            }
+            onChange={onChangeHandler("name")}
           />
         </div>
 
@@ -82,9 +38,7 @@ const GameForm = () => {
             className="form-control"
             id="Duration"
             placeholder="60"
-            onChange={(event) =>
-              setGameToSubmit({ ...gameToSubmit, duration: event.target.value })
-            }
+            onChange={onChangeHandler("duration")}
           />
         </div>
 
@@ -100,9 +54,7 @@ const GameForm = () => {
             className="form-control"
             id="GameMinAge"
             placeholder="3"
-            onChange={(event) =>
-              setGameToSubmit({ ...gameToSubmit, ageMin: event.target.value })
-            }
+            onChange={onChangeHandler("ageMin")}
           />
         </div>
         <div className="col-md-2">
@@ -114,9 +66,7 @@ const GameForm = () => {
             className="form-control"
             id="GameMaxAge"
             placeholder="10"
-            onChange={(event) =>
-              setGameToSubmit({ ...gameToSubmit, ageMax: event.target.value })
-            }
+            onChange={onChangeHandler("ageMax")}
           />
         </div>
 
@@ -132,12 +82,7 @@ const GameForm = () => {
             className="form-control"
             id="PlayersMin"
             placeholder="2"
-            onChange={(event) =>
-              setGameToSubmit({
-                ...gameToSubmit,
-                playersMin: event.target.value,
-              })
-            }
+            onChange={onChangeHandler("playersMin")}
           />
         </div>
         <div className="col-md-2">
@@ -149,12 +94,7 @@ const GameForm = () => {
             className="form-control"
             id="PlayersMax"
             placeholder="5"
-            onChange={(event) =>
-              setGameToSubmit({
-                ...gameToSubmit,
-                playersMax: event.target.value,
-              })
-            }
+            onChange={onChangeHandler("playersMax")}
           />
         </div>
       </form>

@@ -2,7 +2,7 @@ import Indicators from "./CarouselUtils/Indicators";
 import Items from "./CarouselUtils/Items";
 import Controls from "./CarouselUtils/Controls";
 
-const GameCarousel = ({}) => {
+const GameCarousel = () => {
   return (
     <div
       id="carouselExampleCaptions"

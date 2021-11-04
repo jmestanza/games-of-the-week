@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
-// import { Container } from "react-bootstrap";
 import Game from "./model/Game";
 import gameServices from "./services/gameServices";
 import useWindowDimensions from "./utils/windowDimensions";
