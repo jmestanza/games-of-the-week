@@ -22,14 +22,10 @@ const useForm = () => {
 
     if (numbersToCheck.some((field) => !isNumeric(game[field]))) return false;
 
-    try {
-      numbersToCheck.forEach((field) => (game[field] = parseInt(game[field])));
-      setGameToSubmit(game);
-      return true;
-    } catch (error) {
-      console.log("couldnt parse numbers in game, error: ", error);
-      return false;
-    }
+    numbersToCheck.forEach((field) => (game[field] = parseInt(game[field])));
+    setGameToSubmit(game);
+
+    return true;
   };
 
   const onChangeHandler = (field) => (event) =>

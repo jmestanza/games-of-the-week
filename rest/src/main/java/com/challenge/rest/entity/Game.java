@@ -13,19 +13,19 @@ import javax.persistence.Table;
 public class Game {
 
     @Id
-    @Column(name="ID")
+    @Column(name = "ID")
     private int id;
-    @Column(name="NAME")
+    @Column(name = "NAME")
     private String name;
-    @Column(name="AGEMIN")
+    @Column(name = "AGEMIN")
     private int ageMin;
-    @Column(name="AGEMAX")
+    @Column(name = "AGEMAX")
     private int ageMax;
-    @Column(name="PLAYERSMIN")
+    @Column(name = "PLAYERSMIN")
     private int playersMin;
-    @Column(name="PLAYERSMAX")
+    @Column(name = "PLAYERSMAX")
     private int playersMax;
-    @Column(name="DURATION")
+    @Column(name = "DURATION")
     private int duration;
 
 }

@@ -10,10 +10,10 @@ import java.util.List;
 @Repository
 public interface GameRepository extends JpaRepository<Game, Integer> {
 
-    public boolean existsByName(String name);
+    boolean existsByName(String name);
 
-    public List<Game> findByName(String name);
-    
+    List<Game> findByName(String name);
+
     @Query("SELECT MAX(s.id) from Game s")
-    public Integer findMaxId();
+    Integer findMaxId();
 }
