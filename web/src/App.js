@@ -17,17 +17,16 @@ function App() {
   const AppStyle = {
     backgroundPosition: "center-center",
     backgroundRepeat: "no-repeat",
+    WebkitBackgroundSize: "cover",
+    MozBackgroundSize: "cover",
+    OBackgroundSize: "cover",
+    backgroundSize: "cover",
     maxWidth: "100%",
-    height: height - 1,
     backgroundImage: `url(${backgroundUrl})`,
   };
 
   useEffect(() => {
     gameServices.getAll(setGames);
-    const Pirates = Game("Pirates2", 1, 2, 3, 4, 50);
-    // gameServices.add(Pirates);
-    // gameServices.delete('Pirates2');
-    // gameServices.update(Pirates);
   }, []);
 
   const titleStyle = {

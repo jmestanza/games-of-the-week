@@ -1,4 +1,6 @@
 import useForm from "./useForm";
+import GameFields from "../../model/GameFields";
+import GameInput from "./GameInput";
 
 const GameForm = () => {
   const titleStyle = {
@@ -13,90 +15,31 @@ const GameForm = () => {
   const onFormSubmit = () => {
     submitGame();
   };
+
+  const gamesInfo = [
+    { label: "Game Name", field: GameFields.name, defaultValue: "Jumanji" },
+    { label: "Duration", field: GameFields.duration, defaultValue: "60" },
+    { label: "Min", field: GameFields.ageMin, defaultValue: "2" },
+    { label: "Max", field: GameFields.ageMax, defaultValue: "99" },
+    { label: "Min", field: GameFields.playersMin, defaultValue: "2" },
+    { label: "Max", field: GameFields.playersMax, defaultValue: "10" },
+  ];
+
   return (
     <>
       <form className="row justify-content-md-center">
-        <div className="col-2">
-          <label htmlFor="Game Name" className="form-label">
-            Game Name
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="Game Name"
-            placeholder="Jumanji"
-            onChange={onChangeHandler("name")}
-          />
-        </div>
-
-        <div className="col-2">
-          <label htmlFor="Duration" className="form-label">
-            Duration (in minutes)
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="Duration"
-            placeholder="60"
-            onChange={onChangeHandler("duration")}
-          />
-        </div>
-
+        <GameInput {...gamesInfo[0]} onChange={onChangeHandler} />
+        <GameInput {...gamesInfo[1]} onChange={onChangeHandler} />
         <div className="col-12" style={titleStyle}>
           Age
         </div>
-        <div className="col-md-2">
-          <label htmlFor="GameMinAge" className="form-label">
-            Min
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="GameMinAge"
-            placeholder="3"
-            onChange={onChangeHandler("ageMin")}
-          />
-        </div>
-        <div className="col-md-2">
-          <label htmlFor="GameMaxAge" className="form-label">
-            Max
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="GameMaxAge"
-            placeholder="10"
-            onChange={onChangeHandler("ageMax")}
-          />
-        </div>
-
+        <GameInput {...gamesInfo[2]} onChange={onChangeHandler} />
+        <GameInput {...gamesInfo[3]} onChange={onChangeHandler} />
         <div className="col-12" style={titleStyle}>
           Number of Players
         </div>
-        <div className="col-md-2">
-          <label htmlFor="PlayersMin" className="form-label">
-            Min
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="PlayersMin"
-            placeholder="2"
-            onChange={onChangeHandler("playersMin")}
-          />
-        </div>
-        <div className="col-md-2">
-          <label htmlFor="PlayersMax" className="form-label">
-            Max
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="PlayersMax"
-            placeholder="5"
-            onChange={onChangeHandler("playersMax")}
-          />
-        </div>
+        <GameInput {...gamesInfo[4]} onChange={onChangeHandler} />
+        <GameInput {...gamesInfo[5]} onChange={onChangeHandler} />
       </form>
       <div className="col-12" style={{ ...titleStyle, height: 100 }}>
         <button
