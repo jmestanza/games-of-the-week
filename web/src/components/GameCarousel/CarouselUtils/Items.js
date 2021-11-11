@@ -1,5 +1,4 @@
-import "./Items.module.css";
-import { img1Url, img2Url, img3Url } from "../../../utils/imgUrls";
+import "./Items.css";
 
 const imgStyle = {
   width: "100%",
@@ -11,7 +10,15 @@ const itemStyle = {
   height: 600,
 };
 
+const numberOfPlayers = (min, max) =>{
+  if(min === max)
+    return min;
+  else
+    return `${min} - ${max}`;
+}
+
 const Items = ({ games }) => {
+
   return (
     <div className="carousel-inner">
       {games.map((game, index) => (
@@ -30,13 +37,9 @@ const Items = ({ games }) => {
           <div className={"container"}>
             <div className="carousel-caption d-none d-md-block">
               <h5>{game.name}</h5>
-              <p>Duration : {game.duration}</p>
-              <p>
-                Suggested Age : {game.ageMin} - {game.ageMax}
-              </p>
-              <p>
-                Number of Players : {game.playersMin} - {game.playersMax}
-              </p>
+              <p>Duration : {game.duration} minutes </p>
+              <p>Suggested Age : {game.ageMin} - {game.ageMax}</p>
+              <p>Number of Players : {numberOfPlayers(game.playersMin,game.playersMax)}</p>
             </div>
           </div>
         </div>
