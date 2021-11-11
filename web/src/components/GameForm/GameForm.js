@@ -12,17 +12,52 @@ const GameForm = () => {
 
   const [submitGame, onChangeHandler] = useForm();
 
-  const onFormSubmit = () => {
-    submitGame();
-  };
+  const onFormSubmit = () => submitGame();
 
   const gamesInfo = [
-    { label: "Game Name", field: GameFields.name, defaultValue: "Jumanji" },
-    { label: "Duration", field: GameFields.duration, defaultValue: "60" },
-    { label: "Min", field: GameFields.ageMin, defaultValue: "2" },
-    { label: "Max", field: GameFields.ageMax, defaultValue: "99" },
-    { label: "Min", field: GameFields.playersMin, defaultValue: "2" },
-    { label: "Max", field: GameFields.playersMax, defaultValue: "10" },
+    {
+      className: "col-2",
+      label: "Game Name",
+      field: GameFields.name,
+      defaultValue: "Jumanji",
+    },
+    {
+      className: "col-2",
+      label: "Duration",
+      field: GameFields.duration,
+      defaultValue: "60",
+    },
+    {
+      className: "col-2",
+      label: "Min",
+      field: GameFields.ageMin,
+      defaultValue: "2",
+    },
+    {
+      className: "col-2",
+      label: "Max",
+      field: GameFields.ageMax,
+      defaultValue: "99",
+    },
+    {
+      className: "col-2",
+      label: "Min",
+      field: GameFields.playersMin,
+      defaultValue: "2",
+    },
+    {
+      className: "col-2",
+      label: "Max",
+      field: GameFields.playersMax,
+      defaultValue: "10",
+    },
+    {
+      className: "col-6",
+      label: "",
+      field: GameFields.imgURL,
+      defaultValue:
+        "https://pbs.twimg.com/profile_images/1312063891069972480/DlNHL3w7.jpg",
+    },
   ];
 
   return (
@@ -40,6 +75,10 @@ const GameForm = () => {
         </div>
         <GameInput {...gamesInfo[4]} onChange={onChangeHandler} />
         <GameInput {...gamesInfo[5]} onChange={onChangeHandler} />
+        <div className="col-12" style={titleStyle}>
+          Img URL:
+        </div>
+        <GameInput {...gamesInfo[6]} onChange={onChangeHandler} />
       </form>
       <div className="col-12" style={{ ...titleStyle, height: 100 }}>
         <button

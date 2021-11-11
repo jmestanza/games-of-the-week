@@ -1,8 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
-import Game from "./model/Game";
-import gameServices from "./services/gameServices";
-import useWindowDimensions from "./utils/windowDimensions";
 import GameCarousel from "./components/GameCarousel/GameCarousel";
 import GameForm from "./components/GameForm/GameForm";
 
@@ -10,9 +6,6 @@ const backgroundUrl =
   "https://20fd661yccar325znz1e9bdl-wpengine.netdna-ssl.com/wp-content/uploads/2021/08/best-board-games-scaled-e1630330799434.jpeg";
 
 function App() {
-  const { height, width } = useWindowDimensions();
-  console.log(`height: ${height} width: ${width}`);
-
   const AppStyle = {
     backgroundPosition: "center-center",
     backgroundRepeat: "no-repeat",

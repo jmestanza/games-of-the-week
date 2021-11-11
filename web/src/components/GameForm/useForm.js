@@ -1,21 +1,23 @@
 import { useState } from "react";
 import Game from "../../model/Game";
+import GameFields from "../../model/GameFields";
 import gameServices from "../../services/gameServices";
 
 const useForm = () => {
   const [gameToSubmit, setGameToSubmit] = useState(Game());
 
   const validateGame = (game) => {
+    console.log("game to validate ", game);
     const emptyValue = (formValue) => formValue === "";
 
     if (Object.values(game).some(emptyValue)) return false;
 
     const numbersToCheck = [
-      "ageMin",
-      "ageMax",
-      "playersMin",
-      "playersMax",
-      "duration",
+      GameFields.ageMin,
+      GameFields.ageMax,
+      GameFields.playersMin,
+      GameFields.playersMax,
+      GameFields.duration,
     ];
 
     const isNumeric = (num) => !isNaN(num);
@@ -35,7 +37,7 @@ const useForm = () => {
     if (validateGame(gameToSubmit)) {
       gameServices.add(gameToSubmit);
     } else {
-      console.warn("nto valid game to add");
+      console.warn("Not valid game to add");
     }
   };
 

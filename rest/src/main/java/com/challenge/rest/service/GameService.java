@@ -47,6 +47,7 @@ public class GameService {
                     gameToBeUpdated.setPlayersMin(game.getPlayersMin());
                     gameToBeUpdated.setPlayersMax(game.getPlayersMax());
                     gameToBeUpdated.setDuration(game.getDuration());
+                    gameToBeUpdated.setImgURL(game.getImgURL());
                     gameRepository.save(gameToBeUpdated);
                 });
                 return "Game record updated";

@@ -21,7 +21,7 @@ const Items = ({ games }) => {
         >
           <div className={"container"}>
             <img
-              src={img1Url}
+              src={game.imgURL}
               className="d-block w-100"
               alt="..."
               style={imgStyle}

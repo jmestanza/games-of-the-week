@@ -5,6 +5,7 @@ const GameFields = {
   playersMin: "playersMin",
   playersMax: "playersMax",
   duration: "duration",
+  imgURL: "imgURL"
 };
 
 export default GameFields;

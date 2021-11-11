@@ -27,5 +27,7 @@ public class Game {
     private int playersMax;
     @Column(name = "DURATION")
     private int duration;
+    @Column(name = "IMGURL")
+    private String imgURL;
 
 }

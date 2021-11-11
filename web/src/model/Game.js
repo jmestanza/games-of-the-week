@@ -1,4 +1,4 @@
-const Game = (name, ageMin, ageMax, playersMin, playersMax, duration) => {
+const Game = (name, ageMin, ageMax, playersMin, playersMax, duration, imgURL) => {
   const initValue = "";
   const setInitValue = (value) => (value === undefined ? initValue : value);
   return {
@@ -8,6 +8,7 @@ const Game = (name, ageMin, ageMax, playersMin, playersMax, duration) => {
     playersMin: setInitValue(playersMin),
     playersMax: setInitValue(playersMax),
     duration: setInitValue(duration),
+    imgURL: setInitValue(imgURL)
   };
 };
 

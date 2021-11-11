@@ -1,6 +1,8 @@
-const GameInput = ({ label, field, defaultValue, onChange }) => {
+import "./GameInput.css"
+
+const GameInput = ({className, label, field, defaultValue, onChange }) => {
   return (
-    <div className="col-2">
+    <div className={className}>
       <label htmlFor={label} className="form-label">
         {label}
       </label>
@@ -9,7 +11,7 @@ const GameInput = ({ label, field, defaultValue, onChange }) => {
         className="form-control"
         id={field}
         placeholder={defaultValue}
-        onChange={onChange}
+        onChange={onChange(field)}
       />
     </div>
   );
