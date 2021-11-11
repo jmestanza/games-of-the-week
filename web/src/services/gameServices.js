@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:8080/api/';
+const baseUrl = '/api/';
 const addGameUrl = baseUrl+'games/add';
 const updateGameUrl = baseUrl+'games/update';
 const deleteGameUrl = baseUrl+'games/delete';
