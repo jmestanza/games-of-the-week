@@ -10,7 +10,6 @@ const backgroundUrl =
   "https://20fd661yccar325znz1e9bdl-wpengine.netdna-ssl.com/wp-content/uploads/2021/08/best-board-games-scaled-e1630330799434.jpeg";
 
 function App() {
-  const [games, setGames] = useState([]);
   const { height, width } = useWindowDimensions();
   console.log(`height: ${height} width: ${width}`);
 
@@ -24,10 +23,6 @@ function App() {
     maxWidth: "100%",
     backgroundImage: `url(${backgroundUrl})`,
   };
-
-  useEffect(() => {
-    gameServices.getAll(setGames);
-  }, []);
 
   const titleStyle = {
     display: "flex",

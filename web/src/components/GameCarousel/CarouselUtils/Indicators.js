@@ -1,26 +1,16 @@
-const Indicators = () => {
+const Indicators = ({ games }) => {
   return (
     <div className="carousel-indicators">
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="0"
-        className="active"
-        aria-current="true"
-        aria-label="Slide 1"
-      />
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="1"
-        aria-label="Slide 2"
-      />
-      <button
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide-to="2"
-        aria-label="Slide 3"
-      />
+      {games.map((game, index) => (
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to={index.toString()}
+          className={index === 0 ? "active" : null}
+          aria-current={index === 0 ? "true" : null}
+          aria-label={`Slide ${index}`}
+        />
+      ))}
     </div>
   );
 };
