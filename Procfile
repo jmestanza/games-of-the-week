@@ -1,1 +1,0 @@
-web: java -jar target/board-game-catalog-1.0-SNAPSHOT.jar
