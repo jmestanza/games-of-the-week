@@ -1,1 +1,1 @@
-web: java -jar target/rest-1.0-SNAPSHOT.jar
+web: java -jar rest/target/rest-1.0-SNAPSHOT.jar
