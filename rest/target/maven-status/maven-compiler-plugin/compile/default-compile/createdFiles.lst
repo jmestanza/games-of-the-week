@@ -1,0 +1,6 @@
+com\challenge\rest\service\GameService.class
+com\challenge\rest\dialect\SQLiteDialect.class
+com\challenge\rest\entity\Game.class
+com\challenge\rest\repository\GameRepository.class
+com\challenge\rest\RestApplication.class
+com\challenge\rest\controller\GameController.class
