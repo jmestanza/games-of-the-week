@@ -1,0 +1,1 @@
+web: java -jar rest/target/rest-1.0-SNAPSHOT.jar
